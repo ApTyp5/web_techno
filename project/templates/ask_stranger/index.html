@@ -1,0 +1,15 @@
+{% extends "ask_stranger/base.html" %}
+
+{% block content %}
+    {% if questions %}
+    <ul>
+        {% for question in questions %}
+        <li><a href="{% url 'ask_stranger:question' question_id=question.id  %}">{{ question.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+{% endblock %}
+
+

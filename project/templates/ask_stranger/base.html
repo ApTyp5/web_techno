@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Ask stranger</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" base href="{% static "bootstrap_v3/bootstrap.min.css" %}">
+    <link rel="stylesheet" base href="{% static "my.css" %}">
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-9 col-sm-8">{% include "ask_stranger/hat.html" %}
+      <div class="col-md-3 col-sm-4">{% include "ask_stranger/is_authenticated.html" %}
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-sm-12">{% block content %}CONTENT{% endblock %}</div>
+      <div class="col-md-3 col-sm-0">qwer</div>
+    </div>
+  </body>
+
+</html>
