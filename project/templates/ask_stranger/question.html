@@ -1,12 +1,20 @@
+{% extends "ask_stranger/base.html" %}
+
+{% block content %}
 <h2>{{ question.title }}</h2>
-
+<hr>
 <h3>{{ question.text }}</h3>
-
+<hr>
+<h4> Answers: </h4>
 <ul>
     {% for answer in answers %}
-    <li>{{ answer.user }} {{ answer.text }}</li>
+    <li>{{ answer.user }}: {{ answer.text }}</li>
     {% endfor %}
 </ul>
+
+{% endblock %}
+
+
 
 
 

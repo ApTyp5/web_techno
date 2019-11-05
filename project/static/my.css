@@ -1,4 +1,16 @@
 
-div.raw {
-  color: red;
+div.hat {
+  background-color: red;
+}
+
+div.is_auth{
+  background-color: blue;
+}
+
+div.content{
+  background-color: cyan;
+}
+
+div.right_bar{
+  background-color: yellow;
 }

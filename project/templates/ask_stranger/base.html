@@ -1,25 +1,91 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-  <head>
+<head>
     <title>Ask stranger</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" base href="{% static "bootstrap_v3/bootstrap.min.css" %}">
+    <link rel="stylesheet" base href="{% static "bootstrap_v4/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" base href="{% static "bootstrap_v4/css/bootstrap.css" %}">
     <link rel="stylesheet" base href="{% static "my.css" %}">
-  </head>
+</head>
 
-  <body>
+<body>
+<div class="container-fluid">
     <div class="row">
-      <div class="col-md-9 col-sm-8">{% include "ask_stranger/hat.html" %}
-      <div class="col-md-3 col-sm-4">{% include "ask_stranger/is_authenticated.html" %}
+        <!-- Логотип, который пока что надпись -->
+        <div class="col-sm-3">
+            <a href="{% url 'ask_stranger:index' %}">Ask Stranger</a>
+        </div>
+        <!-- Поиск -->
+        <div class="col-sm-4">
+            <form class="form-inline">
+                <input class="form-control" type="text" placeholder="Поиск по воросам">
+                <button type="button" class="btn btn-primary">Найти</button>
+            </form>
+        </div>
+        <!-- Кнопка создания вопроса -->
+        <div class="col-sm-2">
+            <a href="{% url 'ask_stranger:ask' %}" class="btn btn-success active" role="button" aria-pressed="true">Задать
+                вопрос</a>
+        </div>
+        <!-- Уголок пользователя -->
+        <div class="col-sm-3">
+            {% if user.is_authenticated %}
+            <div class="row">
+                <a href="{% url 'ask_stranger:profile' %}">{{ user.name }}</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'ask_stranger:logout' %}">Выйти</a>
+            </div>
+            {% else %}
+            <a href="{% url 'ask_stranger:login' %}">Войти</a>
+            {% endif %}
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-9 col-sm-12">{% block content %}CONTENT{% endblock %}</div>
-      <div class="col-md-3 col-sm-0">qwer</div>
-    </div>
-  </body>
+</div>
 
+<hr>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9">
+            {% block content %}CONTENT{% endblock %}
+        </div>
+        <div class="col-sm-3">
+        <!-- Лучшие теги -->
+          <div class="row">
+            <p class="text-danger">Popular tags:</p>
+              <ul>
+                  {% for tag in popular_tags %}
+                        <li>{{ tag.name }}</li>
+                {% endfor %}
+              </ul>
+          </div>
+        <!-- Лучшие пользователи -->
+          <div class="row">
+              <p class="text-primary">Best users:</p>
+                {% for user in users %}
+                    <ul>
+                        {{ user.get_username }}
+                    </ul>
+                {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
 </html>

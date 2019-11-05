@@ -3,8 +3,6 @@ from . import views
 
 app_name = 'ask_stranger'
 urlpatterns = [
-        path('base/', views.base, name='base'),
-
         path('index/<int:page>', views.index, name = 'index'),
         path('',                 views.index, name = 'index'),
 
