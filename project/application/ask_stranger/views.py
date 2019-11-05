@@ -15,6 +15,9 @@ def index(request, page=1):
             'title': 'title ' + str(i),
             'id': i,
             'text': 'teeeeext' + str(i),
+            'author': 'author' + str(i),
+            'likes' : i,
+            'dislikes': i,
         })
     questions = paginate(questions, page)
     return render(request, 'ask_stranger/index.html', {'questions': questions})
@@ -63,6 +66,9 @@ def question(request, question_id):
         answers.append({
             'user': 'user' + str(i),
             'text': 'answer' + str(i),
+            'author': 'author' + str(i),
+            'likes': i,
+            'dislikes': i,
         })
 
     return render(request, 'ask_stranger/question.html', {'question': question, 'answers': answers})
