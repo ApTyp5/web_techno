@@ -3,8 +3,26 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 
-def paginate(objects, page, objects_on_page=10):
-    paginator = Paginator(objects, objects_on_page)
+def validate_limit(limit):
+    try:
+        if limit > 1000:
+            raise Exception("set default limit")
+    except TypeError:
+        limit = 10
+    return limit
+
+def validate_page(page):
+    try:
+        if page <= 0:
+            raise Exception("set default page")
+    except TypeError:
+        page = 1
+    return page
+
+def paginate(query_set, page, limit = 10):
+    limit = validate_limit(limit)
+    page = validate_page(page)
+    paginator = Paginator(query_set, limit)
     return paginator.get_page(page)
 
 
