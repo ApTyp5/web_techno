@@ -3,7 +3,8 @@
 
 {% block content %}
 <h2>{{ question.title }}</h2>
-<h3>Tags:</h3>
+    <h3>{{ question.text }}</h3>
+<h4>Tags:</h4>
 <ul>
     {% for tag in tags %}
     <li>tag.name</li>
@@ -12,7 +13,7 @@
 
 
 <hr>
-{% for answer in answers %}
+{% for answer in page %}
 <div class="container-fluid">
     <div class="row question-item">
         <div class="card ">
@@ -42,7 +43,7 @@
     </div>
 </div>
 {% endfor %}
-
+    {% include "ask_stranger/paginate.html" %}
 {% endblock %}
 
 

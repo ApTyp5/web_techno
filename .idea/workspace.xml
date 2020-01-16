@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03b81b05-4177-4f79-863a-a941a114f1e8" name="Default Changelist" comment="">
+    <list default="true" id="03b81b05-4177-4f79-863a-a941a114f1e8" name="Default Changelist" comment="paginate validation added">
+      <change afterPath="$PROJECT_DIR$/project/templates/ask_stranger/paginate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/application/ask_stranger/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/application/ask_stranger/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/application/ask_stranger/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/application/ask_stranger/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/ask_stranger/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/ask_stranger/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/ask_stranger/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/ask_stranger/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/ask_stranger/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/ask_stranger/question.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +17,13 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,6 +39,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -111,7 +124,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579189308773</updated>
-      <workItem from="1579189311638" duration="4725000" />
+      <workItem from="1579189311638" duration="9475000" />
     </task>
     <task id="LOCAL-00001" summary="js dependencies are now taken from static files">
       <created>1579193483522</created>
@@ -120,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579193483522</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="paginate validation added">
+      <created>1579194145697</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579194145697</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,17 +149,18 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="js dependencies are now taken from static files" />
-    <option name="LAST_COMMIT_MESSAGE" value="js dependencies are now taken from static files" />
+    <MESSAGE value="paginate validation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="paginate validation added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="492" y="89" width="1183" height="890" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579190889104">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
     <state x="492" y="89" width="1183" height="890" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.34.1850.1046@70.34.1850.1046" timestamp="1579190889104" />
-    <state x="460" y="85" width="1060" height="951" key="CommitChangelistDialog2" timestamp="1579193483270">
+    <state x="460" y="85" width="1060" height="951" key="CommitChangelistDialog2" timestamp="1579194668794">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
-    <state x="460" y="85" width="1060" height="951" key="CommitChangelistDialog2/70.34.1850.1046@70.34.1850.1046" timestamp="1579193483270" />
+    <state x="460" y="85" width="1060" height="951" key="CommitChangelistDialog2/70.34.1850.1046@70.34.1850.1046" timestamp="1579194668794" />
     <state x="756" y="238" width="644" height="598" key="EnvironmentVariablesDialog" timestamp="1579190766316">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
@@ -148,22 +169,22 @@
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
     <state x="724" y="243" width="530" height="640" key="FileChooserDialogImpl/70.34.1850.1046@70.34.1850.1046" timestamp="1579190482926" />
-    <state width="1794" height="161" key="GridCell.Tab.0.bottom" timestamp="1579193394332">
+    <state width="1794" height="161" key="GridCell.Tab.0.bottom" timestamp="1579199181122">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
-    <state width="1794" height="161" key="GridCell.Tab.0.bottom/70.34.1850.1046@70.34.1850.1046" timestamp="1579193394332" />
-    <state width="1794" height="161" key="GridCell.Tab.0.center" timestamp="1579193394331">
+    <state width="1794" height="161" key="GridCell.Tab.0.bottom/70.34.1850.1046@70.34.1850.1046" timestamp="1579199181122" />
+    <state width="1794" height="161" key="GridCell.Tab.0.center" timestamp="1579199181122">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
-    <state width="1794" height="161" key="GridCell.Tab.0.center/70.34.1850.1046@70.34.1850.1046" timestamp="1579193394331" />
-    <state width="1794" height="161" key="GridCell.Tab.0.left" timestamp="1579193394330">
+    <state width="1794" height="161" key="GridCell.Tab.0.center/70.34.1850.1046@70.34.1850.1046" timestamp="1579199181122" />
+    <state width="1794" height="161" key="GridCell.Tab.0.left" timestamp="1579199181121">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
-    <state width="1794" height="161" key="GridCell.Tab.0.left/70.34.1850.1046@70.34.1850.1046" timestamp="1579193394330" />
-    <state width="1794" height="161" key="GridCell.Tab.0.right" timestamp="1579193394332">
+    <state width="1794" height="161" key="GridCell.Tab.0.left/70.34.1850.1046@70.34.1850.1046" timestamp="1579199181121" />
+    <state width="1794" height="161" key="GridCell.Tab.0.right" timestamp="1579199181122">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>
-    <state width="1794" height="161" key="GridCell.Tab.0.right/70.34.1850.1046@70.34.1850.1046" timestamp="1579193394332" />
+    <state width="1794" height="161" key="GridCell.Tab.0.right/70.34.1850.1046@70.34.1850.1046" timestamp="1579199181122" />
     <state width="1794" height="323" key="GridCell.Tab.1.bottom" timestamp="1579190049709">
       <screen x="70" y="34" width="1850" height="1046" />
     </state>

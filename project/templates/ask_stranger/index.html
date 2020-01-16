@@ -3,7 +3,7 @@
 
 {% block content %}
     <h3>{{ description }}</h3>
-{% for question in questions %}
+{% for question in page %}
 <div class="card col-md-12 p-3 question-item">
     <div class="row ">
         <div class="col-md-2">
@@ -34,5 +34,6 @@
     </div>
 </div>
 {% endfor %}
+    {% include "ask_stranger/paginate.html" %}
 {% endblock %}
 

@@ -68,9 +68,9 @@
         <!-- Лучшие пользователи -->
           <div class="row">
               <p class="text-primary">Best users:</p>
-                {% for user in users %}
+                {% for user in best_users %}
                     <ul>
-                        {{ user.get_username }}
+                        {{ user.name }}
                     </ul>
                 {% endfor %}
           </div>
