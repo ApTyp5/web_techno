@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
+from .models import Question, Answer, QuestionLike, AnswerLike, Tag, Profile
 
 
 def get_pop_tags():
@@ -46,16 +47,17 @@ def index(request):
     page_num = request.GET.get('page')
     description = 'Новые вопросы'
 
-    questions = []
-    for i in range(50):
-        questions.append({
-            'title': 'title ' + str(i),
-            'id': i,
-            'text': 'teeeeext' + str(i),
-            'author': 'author' + str(i),
-            'likes': i,
-            'dislikes': i,
-        })
+    questions = Question.objects.new_questions()
+    # questions = list()
+    # for i in range(50):
+    #     questions.append({
+    #         'title': 'title ' + str(i),
+    #         'id': i,
+    #         'text': 'teeeeext' + str(i),
+    #         'author': 'author' + str(i),
+    #         'likes': i,
+    #         'dislikes': i,
+    #     })
 
     page_contents, paginator = paginate(questions, page_num)
     return render(request, 'ask_stranger/index.html',
@@ -65,18 +67,17 @@ def index(request):
                    'popular_tags': get_pop_tags(),
                    'best_users': get_best_users()})
 
-
 def hot(request):
     page_num = request.GET.get('page')
     description = 'Лучшие вопросы'
 
-    questions = []
-    for i in range(50):
-        questions.append({
-            'title': 'title ' + str(i),
-            'id': i,
-            'text': 'teeeeext' + str(i),
-        })
+    questions = Question.objects.hot_questions()
+    # for i in range(50):
+    #     questions.append({
+    #         'title': 'title ' + str(i),
+    #         'id': i,
+    #         'text': 'teeeeext' + str(i),
+    #     })
 
     page_contents, paginator = paginate(questions, page_num)
 
@@ -90,15 +91,16 @@ def hot(request):
 
 def tagged(request, tag='default'):
     page_num = request.GET.get('page')
-    descripsion = 'Вопросы по тэгу "' + tag + '"';
+    descripsion = 'Вопросы по тэгу "' + tag + '"'
 
-    questions = []
-    for i in range(50):
-        questions.append({
-            'title': 'title ' + str(i),
-            'id': i,
-            'text': 'teeeeext' + str(i),
-        })
+    questions = Question.questions.tagged_questions(tag)
+
+    # for i in range(50):
+    #     questions.append({
+    #         'title': 'title ' + str(i),
+    #         'id': i,
+    #         'text': 'teeeeext' + str(i),
+    #     })
 
     page_contents, paginator = paginate(questions, page_num)
 
@@ -111,26 +113,26 @@ def tagged(request, tag='default'):
 
 
 def question(request, question_id):
-    # question = get_object_or_404(Question, pk = question_id)
-    # answers  = get_list_or_404(Answer, question_id = question_id)
+    question = get_object_or_404(Question, pk = question_id)
+    answers  = get_list_or_404(Answer, question_id = question_id)
     page_num = request.GET.get('page')
 
-    question = {
-        'title': 'title' + str(question_id),
-        'id': 'id ' + str(question_id),
-        'text': 'teeeeext' + str(question_id),
-    }
+    # question = {
+    #     'title': 'title' + str(question_id),
+    #     'id': 'id ' + str(question_id),
+    #     'text': 'teeeeext' + str(question_id),
+    # }
 
-    answer = []
-    for i in range(50):
-        answer.append({
-            'user': 'user' + str(i),
-            'text': 'answer' + str(i),
-            'author': 'author' + str(i),
-            'likes': i,
-            'dislikes': i,
-        })
-    page_contents, paginator = paginate(answer, page_num)
+    # answer = []
+    # for i in range(50):
+    #     answer.append({
+    #         'user': 'user' + str(i),
+    #         'text': 'answer' + str(i),
+    #         'author': 'author' + str(i),
+    #         'likes': i,
+    #         'dislikes': i,
+    #     })
+    page_contents, paginator = paginate(answers, page_num)
 
     return render(request, 'ask_stranger/question.html',
                   {'page': page_contents,
